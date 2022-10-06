@@ -1,0 +1,41 @@
+<div class="header row">
+  <input type="text" [(ngModel)]="anime">
+  <button (click)="search()" class="waves-effect waves-light btn" >
+    Search
+    <span class="material-symbols-outlined">
+      done_outline
+    </span>
+  </button> 
+</div>
+
+  
+  <div class="row" *ngIf="animes">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{response.data[id].attributes.posterImage.original}}" alt="">
+          
+        </div>
+        <div class="card-content">
+          <span class="card-title black-text">{{response.data[id].attributes.canonicalTitle}}</span>
+          <p>
+            {{response.data[id].attributes.description}}
+          </p>
+          <p>AgeRating: {{response.data[id].attributes.ageRating}}</p>
+        </div>
+        <div class="card-action">
+          <button class="waves-effect waves-light btn" (click)="previousid()">
+            Previous
+          </button>
+          <button class="waves-effect waves-light btn" (click)="nextid()">
+            Next
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
